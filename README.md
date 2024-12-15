@@ -10,39 +10,68 @@ SnapCity is a modern web application that empowers citizens to actively particip
 - 📊 **Interactive Dashboard**: Track your impact and community statistics
 - 🤖 **AI Assistant**: Get help and guidance through our integrated chat assistant
 
+## Project Structure
+
+```
+snap-city/
+├── Frontend
+│   ├── index.html          # Home page
+│   ├── dashboard.html      # User dashboard
+│   ├── social.html         # Community feed
+│   ├── missions.html       # Available missions
+│   ├── styles/            # CSS stylesheets
+│   ├── js/               # JavaScript files
+│   └── assets/           # Images and static assets
+│
+├── Backend (In Development)
+│   ├── app/
+│   │   ├── main.py        # FastAPI application
+│   │   ├── models/        # Data models
+│   │   ├── routers/       # API endpoints
+│   │   ├── core/          # Core functionality
+│   │   └── services/      # External services
+│   └── requirements.txt    # Python dependencies
+```
+
 ## Tech Stack
 
+### Frontend
 - HTML5
 - CSS3 (Tailwind CSS)
 - JavaScript (Vanilla JS)
 - Chart.js for data visualization
 
-## Getting Started
+### Backend (In Development)
+- FastAPI (Python web framework)
+- MongoDB (Database)
+- JWT Authentication
+- OpenAI Integration
+- AWS S3 (Image Storage)
 
+## Quick Start
+
+### Frontend Demo
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/snap-city.git
+git clone https://github.com/ujpm/snapcity.git
 ```
 
 2. Open `index.html` in your web browser to start using the application.
 
-## Project Structure
+### Backend Setup (Coming Soon)
+1. Create a virtual environment
+2. Install dependencies: `pip install -r backend/requirements.txt`
+3. Configure environment variables
+4. Run: `uvicorn app.main:app --reload`
 
-```
-snap-city/
-├── index.html          # Home page
-├── dashboard.html      # User dashboard
-├── social.html         # Community feed
-├── missions.html       # Available missions
-├── styles/
-│   └── main.css       # Main stylesheet
-├── js/
-│   ├── chat.js        # AI Assistant functionality
-│   ├── dashboard.js   # Dashboard charts and stats
-│   ├── missions.js    # Mission management
-│   └── rewards.js     # Rewards system
-└── assets/            # Images and other static assets
-```
+## API Documentation (Coming Soon)
+The backend API will provide endpoints for:
+- User Authentication
+- Mission Management
+- Social Interactions
+- Rewards System
+- Dashboard Analytics
+- AI Chat Assistant
 
 ## Contributing
 
