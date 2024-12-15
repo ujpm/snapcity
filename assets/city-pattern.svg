@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <pattern id="buildings" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+            <!-- Building 1 -->
+            <rect x="5" y="20" width="10" height="30" fill="currentColor" opacity="0.2"/>
+            <rect x="7" y="22" width="2" height="2" fill="currentColor" opacity="0.3"/>
+            <rect x="7" y="26" width="2" height="2" fill="currentColor" opacity="0.3"/>
+            
+            <!-- Building 2 -->
+            <rect x="20" y="10" width="15" height="40" fill="currentColor" opacity="0.2"/>
+            <rect x="23" y="13" width="3" height="3" fill="currentColor" opacity="0.3"/>
+            <rect x="29" y="13" width="3" height="3" fill="currentColor" opacity="0.3"/>
+            
+            <!-- Building 3 -->
+            <rect x="40" y="25" width="8" height="25" fill="currentColor" opacity="0.2"/>
+            <rect x="42" y="27" width="2" height="2" fill="currentColor" opacity="0.3"/>
+            <rect x="42" y="31" width="2" height="2" fill="currentColor" opacity="0.3"/>
+        </pattern>
+    </defs>
+    <rect width="100" height="100" fill="url(#buildings)"/>
+</svg>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapCity - AI-Powered Urban Insights</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/home.css" rel="stylesheet">
+    <link href="styles/chat.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="nav-container fixed top-0 left-0 right-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="logo-container flex items-center">
+                            <img class="w-auto" src="assets/logo.png" alt="SnapCity">
+                            <span class="ml-2 text-xl font-bold text-gray-900">SnapCity</span>
+                        </a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="nav-link active">Home</a>
+                        <a href="dashboard.html" class="nav-link">Dashboard</a>
+                        <a href="missions.html" class="nav-link">Missions</a>
+                        <a href="rewards.html" class="nav-link">Rewards</a>
+                        <a href="social.html" class="nav-link">Social</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="snappoints-display bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                            <span id="snappoints-count">0</span> SP
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="text-center mb-16">
+            <h1 class="text-5xl font-bold text-gray-900 mb-6">Make Your City Better, Together 🌟</h1>
+            <p class="text-xl text-gray-600 mb-8">Join thousands of citizens making a real impact through urban engagement and community collaboration.</p>
+            <div class="flex justify-center gap-4">
+                <a href="/missions.html" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors font-semibold">Start Your Journey</a>
+                <a href="#how-it-works" class="bg-gray-100 text-gray-800 px-8 py-3 rounded-full hover:bg-gray-200 transition-colors font-semibold">Learn More</a>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition-transform">
+                <div class="text-4xl font-bold text-blue-600 mb-2">15,420</div>
+                <div class="text-gray-600">Active Citizens</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition-transform">
+                <div class="text-4xl font-bold text-green-600 mb-2">8,750</div>
+                <div class="text-gray-600">Issues Resolved</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition-transform">
+                <div class="text-4xl font-bold text-purple-600 mb-2">45,890</div>
+                <div class="text-gray-600">SP Points Awarded</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition-transform">
+                <div class="text-4xl font-bold text-orange-600 mb-2">2,340</div>
+                <div class="text-gray-600">Active Missions</div>
+            </div>
+        </section>
+
+        <!-- Featured Missions -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Featured Missions 🎯</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="images/green-mission.jpeg" alt="Green Mission" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Environment</span>
+                            <span class="text-blue-600 font-bold">200 SP</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Green Space Guardian</h3>
+                        <p class="text-gray-600 mb-4">Document and help maintain local parks and green spaces.</p>
+                        <a href="/missions.html" class="text-blue-600 font-semibold hover:text-blue-700">Join Mission →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="images/infrastructure-mission.jpeg" alt="Infrastructure Mission" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Infrastructure</span>
+                            <span class="text-blue-600 font-bold">300 SP</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Road Condition Reporter</h3>
+                        <p class="text-gray-600 mb-4">Help identify and report road maintenance needs.</p>
+                        <a href="/missions.html" class="text-blue-600 font-semibold hover:text-blue-700">Join Mission →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="images/community-mission.jpeg" alt="Community Mission" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Community</span>
+                            <span class="text-blue-600 font-bold">250 SP</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Community Event Organizer</h3>
+                        <p class="text-gray-600 mb-4">Create and participate in local community events.</p>
+                        <a href="/missions.html" class="text-blue-600 font-semibold hover:text-blue-700">Join Mission →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how-it-works" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">How It Works 🎮</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">1️⃣</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Join Missions</h3>
+                    <p class="text-gray-600">Choose from various missions to improve your city</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">2️⃣</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Complete Tasks</h3>
+                    <p class="text-gray-600">Document issues and contribute to solutions</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">3️⃣</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Earn Points</h3>
+                    <p class="text-gray-600">Get SP points for your contributions</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">4️⃣</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Unlock Rewards</h3>
+                    <p class="text-gray-600">Redeem points for exclusive rewards</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Highlights -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Community Highlights 🌟</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="images/user1.jpeg" alt="Top Contributor" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h3 class="font-bold text-gray-900">Sarah Chen</h3>
+                            <p class="text-gray-600">Urban Pioneer • 1,250 SP</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Thanks to SnapCity, I've helped improve 5 parks in my neighborhood. The community support is amazing!"</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <span>🏆 Top Contributor</span>
+                        <span class="mx-2">•</span>
+                        <span>🌳 Environmental Champion</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="images/user2.jpeg" alt="Rising Star" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h3 class="font-bold text-gray-900">Mike Rodriguez</h3>
+                            <p class="text-gray-600">Community Guardian • 980 SP</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Organized my first community cleanup event through SnapCity. We collected over 100 bags of trash!"</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <span>⭐ Rising Star</span>
+                        <span class="mx-2">•</span>
+                        <span>🤝 Community Leader</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="text-center bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-12">
+            <h2 class="text-3xl font-bold text-white mb-4">Ready to Make a Difference?</h2>
+            <p class="text-xl text-blue-100 mb-8">Join SnapCity today and start earning rewards while improving your community!</p>
+            <a href="/missions.html" class="bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-blue-50 transition-colors font-semibold inline-block">Get Started Now</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>About SnapCity</h3>
+                <ul>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Impact Stories</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Community</h3>
+                <ul>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="#">Community Guidelines</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Partner With Us</a></li>
+                    <li><a href="#">City Partnerships</a></li>
+                    <li><a href="#">Developer API</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 SnapCity. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>

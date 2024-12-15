@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapCity - Rewards</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/rewards.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation (same as layout.html) -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="flex items-center">
+                            <img class="h-8 w-auto" src="assets/logo.png" alt="SnapCity">
+                            <span class="ml-2 text-xl font-bold text-gray-900">SnapCity</span>
+                        </a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="dashboard.html" class="nav-link">Dashboard</a>
+                        <a href="missions.html" class="nav-link">Missions</a>
+                        <a href="rewards.html" class="nav-link active">Rewards</a>
+                        <a href="social.html" class="nav-link">Social</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="snappoints-display bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                            <span id="snappoints-count">0</span> SP
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+        <!-- Rewards Header -->
+        <div class="bg-gradient-to-r from-purple-600 to-indigo-800 text-white">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                <div class="lg:flex lg:items-center lg:justify-between">
+                    <div class="flex-1 min-w-0">
+                        <h2 class="text-3xl font-bold leading-7 sm:text-4xl sm:truncate">
+                            Rewards Store
+                        </h2>
+                        <p class="mt-3 text-lg text-purple-100">
+                            Redeem your SnapPoints for exclusive rewards and experiences
+                        </p>
+                    </div>
+                    <div class="mt-5 flex lg:mt-0 lg:ml-4">
+                        <span class="hidden sm:block">
+                            <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-purple-600 bg-white hover:bg-purple-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                                <svg class="-ml-1 mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"/>
+                                </svg>
+                                Sort Rewards
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reward Categories -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex space-x-4 overflow-x-auto pb-4 reward-categories">
+                <button class="category-btn active" data-category="all">All Rewards</button>
+                <button class="category-btn" data-category="transport">Transport</button>
+                <button class="category-btn" data-category="events">Events</button>
+                <button class="category-btn" data-category="services">Services</button>
+                <button class="category-btn" data-category="merchandise">Merchandise</button>
+            </div>
+        </div>
+
+        <!-- Featured Rewards -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <div class="featured-reward bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 rounded-2xl shadow-xl overflow-hidden">
+                <div class="p-8 sm:p-12 flex flex-col sm:flex-row items-center">
+                    <div class="flex-1">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-800 text-white mb-4">
+                            Featured Reward
+                        </div>
+                        <h3 class="text-3xl font-bold text-white mb-4">Annual Transit Pass</h3>
+                        <p class="text-yellow-100 text-lg mb-6">Get unlimited access to all city public transport for an entire year!</p>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-2xl font-bold text-white">5000 SP</span>
+                            <button class="px-6 py-3 bg-white text-yellow-600 rounded-lg font-semibold hover:bg-yellow-50 transition-colors">
+                                Redeem Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-8 sm:mt-0 sm:ml-8">
+                        <img src="assets/rewards/transit-pass.jpeg" alt="Transit Pass" class="w-64 h-64 object-cover rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rewards Grid -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="rewards-grid">
+                <!-- Reward cards will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Redemption History -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-900">Redemption History</h3>
+                </div>
+                <div class="divide-y divide-gray-200">
+                    <div id="redemption-history" class="space-y-0">
+                        <!-- History items will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Reward Details Modal -->
+    <div id="reward-modal" class="fixed inset-0 bg-gray-500 bg-opacity-75 hidden flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg max-w-lg w-full mx-4">
+            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-lg font-semibold text-gray-900" id="modal-title"></h3>
+                <button class="modal-close text-gray-400 hover:text-gray-500">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="px-6 py-4" id="modal-content">
+                <!-- Reward details will be populated here -->
+            </div>
+            <div class="px-6 py-4 border-t border-gray-200 flex justify-end">
+                <button class="modal-close px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 mr-2">
+                    Cancel
+                </button>
+                <button class="redeem-reward px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700">
+                    Confirm Redemption
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Widget (same as layout.html) -->
+    <div id="chat-widget" class="fixed bottom-4 right-4 bg-white rounded-lg shadow-xl w-96 transition-all duration-300 transform translate-y-0">
+        <!-- Chat widget content -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/rewards.js"></script>
+</body>
+</html>

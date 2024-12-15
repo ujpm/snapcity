@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapCity - Social Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/social.css" rel="stylesheet">
+    <link href="styles/chat.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="nav-container fixed top-0 left-0 right-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="logo-container flex items-center">
+                            <img class="w-auto" src="assets/logo.png" alt="SnapCity">
+                            <span class="ml-2 text-xl font-bold text-gray-900">SnapCity</span>
+                        </a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="dashboard.html" class="nav-link">Dashboard</a>
+                        <a href="missions.html" class="nav-link">Missions</a>
+                        <a href="rewards.html" class="nav-link">Rewards</a>
+                        <a href="social.html" class="nav-link active">Social</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="snappoints-display bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                            <span id="snappoints-count">0</span> SP
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Create Post Section -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <div class="flex items-center mb-4">
+                <img src="images/profile.jpeg" alt="Your Profile" class="w-10 h-10 rounded-full mr-4">
+                <div class="flex-grow">
+                    <textarea class="w-full border rounded-lg p-4 resize-none" rows="3" placeholder="Share your urban improvement story..."></textarea>
+                </div>
+            </div>
+            <div class="flex justify-between items-center">
+                <div class="flex space-x-4">
+                    <button class="flex items-center text-gray-600 hover:text-blue-600">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        Add Photo
+                    </button>
+                    <button class="flex items-center text-gray-600 hover:text-blue-600">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        Add Location
+                    </button>
+                    <button class="flex items-center text-gray-600 hover:text-blue-600">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                        </svg>
+                        Add Tags
+                    </button>
+                </div>
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
+                    Share (+25 SP)
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Main Feed -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Featured Post -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <img src="images/user1.jpeg" alt="Sarah Chen" class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h3 class="font-bold text-gray-900">Sarah Chen</h3>
+                                    <p class="text-sm text-gray-500">Urban Pioneer • 2 hours ago</p>
+                                </div>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Featured 🌟</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">Just completed the Green Space Guardian mission! Check out the before and after of Liberty Park. Together, we collected over 50 bags of trash and planted 20 new trees! 🌳 #GreenCity #CommunityAction</p>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <img src="images/park-before.jpeg" alt="Park Before" class="rounded-lg w-full h-48 object-cover">
+                            <img src="images/park-after.jpeg" alt="Park After" class="rounded-lg w-full h-48 object-cover">
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <div class="flex space-x-4">
+                                <button class="flex items-center space-x-2 hover:text-blue-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/>
+                                    </svg>
+                                    <span>245 Likes</span>
+                                </button>
+                                <button class="flex items-center space-x-2 hover:text-blue-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                                    </svg>
+                                    <span>42 Comments</span>
+                                </button>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-blue-600 font-semibold">+100 SP Earned</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regular Posts -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="images/user2.jpeg" alt="Mike Rodriguez" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h3 class="font-bold text-gray-900">Mike Rodriguez</h3>
+                                <p class="text-sm text-gray-500">Community Guardian • 5 hours ago</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">Spotted a pothole on Main Street that needs attention. Already reported it through the app. Let's make our roads safer! 🚗 #Infrastructure #SafetyFirst</p>
+                        <img src="images/pothole.jpeg" alt="Pothole Report" class="rounded-lg w-full h-64 object-cover mb-4">
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <div class="flex space-x-4">
+                                <button class="flex items-center space-x-2 hover:text-blue-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/>
+                                    </svg>
+                                    <span>128 Likes</span>
+                                </button>
+                                <button class="flex items-center space-x-2 hover:text-blue-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                                    </svg>
+                                    <span>25 Comments</span>
+                                </button>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-blue-600 font-semibold">+25 SP Earned</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="space-y-6">
+                <!-- Your Impact Card -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Your Impact 📊</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Total SP Earned</span>
+                            <span class="font-bold text-blue-600">1,250 SP</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Posts This Week</span>
+                            <span class="font-bold">12</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Issues Reported</span>
+                            <span class="font-bold">8</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Community Rank</span>
+                            <span class="font-bold text-purple-600">Urban Pioneer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trending Topics -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Trending Topics 🔥</h3>
+                    <div class="space-y-4">
+                        <a href="#" class="block hover:bg-gray-50 rounded-lg p-3 transition-colors">
+                            <div class="font-semibold text-gray-900">#GreenCity</div>
+                            <div class="text-sm text-gray-500">1,245 posts</div>
+                        </a>
+                        <a href="#" class="block hover:bg-gray-50 rounded-lg p-3 transition-colors">
+                            <div class="font-semibold text-gray-900">#Infrastructure</div>
+                            <div class="text-sm text-gray-500">892 posts</div>
+                        </a>
+                        <a href="#" class="block hover:bg-gray-50 rounded-lg p-3 transition-colors">
+                            <div class="font-semibold text-gray-900">#CommunityCleanup</div>
+                            <div class="text-sm text-gray-500">567 posts</div>
+                        </a>
+                        <a href="#" class="block hover:bg-gray-50 rounded-lg p-3 transition-colors">
+                            <div class="font-semibold text-gray-900">#SafetyFirst</div>
+                            <div class="text-sm text-gray-500">445 posts</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Upcoming Events -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Upcoming Events 📅</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-600 pl-4">
+                            <div class="font-semibold text-gray-900">Community Cleanup Day</div>
+                            <div class="text-sm text-gray-500">Dec 20 • Liberty Park</div>
+                            <div class="text-sm text-blue-600">+100 SP Reward</div>
+                        </div>
+                        <div class="border-l-4 border-green-600 pl-4">
+                            <div class="font-semibold text-gray-900">Tree Planting Initiative</div>
+                            <div class="text-sm text-gray-500">Dec 23 • Downtown</div>
+                            <div class="text-sm text-blue-600">+150 SP Reward</div>
+                        </div>
+                        <div class="border-l-4 border-purple-600 pl-4">
+                            <div class="font-semibold text-gray-900">Urban Planning Workshop</div>
+                            <div class="text-sm text-gray-500">Dec 25 • City Hall</div>
+                            <div class="text-sm text-blue-600">+200 SP Reward</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Chat Widget -->
+    <div id="chat-widget" class="chat-widget fixed bottom-4 right-4 bg-white rounded-lg shadow-xl w-96 transition-all duration-300" aria-live="polite">
+        <div class="chat-header text-white p-4 rounded-t-lg cursor-pointer flex justify-between items-center">
+            <div class="flex items-center">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+                <span class="font-medium">SnapCity Assistant</span>
+            </div>
+            <button class="chat-minimize hover:bg-blue-700 rounded-full p-1" aria-label="Toggle chat">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+        </div>
+        <div class="chat-body bg-white rounded-b-lg">
+            <div id="chat-messages" class="p-4 h-96 overflow-y-auto"></div>
+            <div class="quick-responses px-4"></div>
+            <div class="chat-input-container p-4 border-t">
+                <input type="text" class="chat-input w-full border rounded-lg px-4 py-2" placeholder="Type your message...">
+                <button class="send-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>About SnapCity</h3>
+                <ul>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Impact Stories</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Community</h3>
+                <ul>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="#">Community Guidelines</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Partner With Us</a></li>
+                    <li><a href="#">City Partnerships</a></li>
+                    <li><a href="#">Developer API</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 SnapCity. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.059-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/social.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>

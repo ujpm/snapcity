@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapCity - Missions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/missions.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation (same as layout.html) -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="flex items-center">
+                            <img class="h-8 w-auto" src="assets/logo.png" alt="SnapCity">
+                            <span class="ml-2 text-xl font-bold text-gray-900">SnapCity</span>
+                        </a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="dashboard.html" class="nav-link">Dashboard</a>
+                        <a href="missions.html" class="nav-link active">Missions</a>
+                        <a href="rewards.html" class="nav-link">Rewards</a>
+                        <a href="social.html" class="nav-link">Social</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="snappoints-display bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                            <span id="snappoints-count">0</span> SP
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+        <!-- Missions Header -->
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-800 text-white">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                <div class="lg:flex lg:items-center lg:justify-between">
+                    <div class="flex-1 min-w-0">
+                        <h2 class="text-3xl font-bold leading-7 sm:text-4xl sm:truncate">
+                            Active Missions
+                        </h2>
+                        <div class="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
+                            <div class="mt-2 flex items-center text-sm">
+                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                </svg>
+                                Daily Missions Reset in: <span id="mission-timer" class="ml-1 font-medium">23:59:59</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 flex lg:mt-0 lg:ml-4">
+                        <span class="hidden sm:block">
+                            <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-blue-600 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                <svg class="-ml-1 mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"/>
+                                </svg>
+                                Filter Missions
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mission Categories -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex space-x-4 overflow-x-auto pb-4 mission-categories">
+                <button class="category-btn active" data-category="all">All Missions</button>
+                <button class="category-btn" data-category="daily">Daily</button>
+                <button class="category-btn" data-category="weekly">Weekly</button>
+                <button class="category-btn" data-category="environmental">Environmental</button>
+                <button class="category-btn" data-category="community">Community</button>
+                <button class="category-btn" data-category="infrastructure">Infrastructure</button>
+            </div>
+        </div>
+
+        <!-- Missions Grid -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="missions-grid">
+                <!-- Mission cards will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Mission Progress -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-900">Your Progress</h3>
+                </div>
+                <div class="p-6">
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium text-gray-700">Daily Missions</span>
+                                <span class="text-sm font-medium text-blue-600">4/5 Completed</span>
+                            </div>
+                            <div class="relative pt-1">
+                                <div class="overflow-hidden h-2 text-xs flex rounded bg-blue-100">
+                                    <div class="progress-bar-daily w-4/5 shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium text-gray-700">Weekly Missions</span>
+                                <span class="text-sm font-medium text-blue-600">2/3 Completed</span>
+                            </div>
+                            <div class="relative pt-1">
+                                <div class="overflow-hidden h-2 text-xs flex rounded bg-blue-100">
+                                    <div class="progress-bar-weekly w-2/3 shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mission Details Modal -->
+    <div id="mission-modal" class="fixed inset-0 bg-gray-500 bg-opacity-75 hidden flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg max-w-lg w-full mx-4">
+            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-lg font-semibold text-gray-900" id="modal-title"></h3>
+                <button class="modal-close text-gray-400 hover:text-gray-500">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="px-6 py-4" id="modal-content">
+                <!-- Mission details will be populated here -->
+            </div>
+            <div class="px-6 py-4 border-t border-gray-200 flex justify-end">
+                <button class="modal-close px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 mr-2">
+                    Close
+                </button>
+                <button class="start-mission px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700">
+                    Start Mission
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Widget (same as layout.html) -->
+    <div id="chat-widget" class="fixed bottom-4 right-4 bg-white rounded-lg shadow-xl w-96 transition-all duration-300 transform translate-y-0">
+        <!-- Chat widget content -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/missions.js"></script>
+</body>
+</html>
